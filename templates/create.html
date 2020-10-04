@@ -1,0 +1,20 @@
+New instructor
+<form method="POST" action="/create">
+<input number="ID" type="text">
+<input name="FirstName" type="text">
+<input name="LastName" type="text">
+<input type="submit" value="Add">
+</form>
+
+<table border=1>
+<tr>
+<td>ID</td><td>FirstName</td><td>LastName</td>
+</tr>
+{% for instructor in Instructor %}
+	<tr>
+		<td>{{ instructor.ID }}</td>
+		<td>{{ instructor.FirstName }}</td>
+		<td>{{ instructor.LastName }}</td>
+	</tr>
+{% endfor %}
+</table>
