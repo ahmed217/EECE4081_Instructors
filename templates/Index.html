@@ -57,7 +57,10 @@
 		<td>{{ instructor.firstname}}</td>
 		<td>{{ instructor.lastname}}</td>
 		<td><a href="{{instructor.link}}" target="_blank" > {{ instructor.read }} </a></td>
-		<td><a href="/delete/{{instructor.id }}" onClick="return confirm('Are you sure yo u want to delete instructor: {{ instructor.firstname }} {{ instructor.lastname }}?')">Delete</a> </td>	
+		<td><a href="/delete/{{instructor.id }}" onClick="return confirm('Are you sure you want to delete instructor: {{ instructor.firstname }} {{ instructor.lastname }}?')">Delete</a> 
+		    |
+		    <a href= "/update/{{ instructor.id }}" onClick="return confirm('Are you sure you want to update instructor: {{ instructor.firstname }} {{ instructor.lastname }}?')"> Update</a>
+		</td>
 		
 	</tr>
 	{% endfor %}

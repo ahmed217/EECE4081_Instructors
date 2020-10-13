@@ -36,6 +36,33 @@ def create():
     instructors = Instructor.query.all()
     return render_template("Create.html",instructors=instructors) 
 
+@instructor.route('/update/<instructor_id>', methods=['GET','POST']) # add id 
+def update(laptop_id):
+    if request.form:
+        newtitle = request.form.get("title")
+        newfirstname = request.form.get("firstname")
+        newlastname  = request.form.get("lastname")
+        newlink = request.form.get("link")
+        
+        instructor = Instructor.query.get(laptop_id)
+        instructor.title = newtitle
+        instructor.firstname = newfirstname
+        instructor.lastname = newlastname
+        instructor.link = newlink
+
+        db.session.commit()
+        
+        return redirect("/")
+    
+    instructor = Instructor.query.get(laptop_id)
+    return render_template('update.html', instructor = instructor, title= "Update an Instructor")
+"""
+it gets the instructor's id and simply recreates the id line
+from the new title name and link, it replaces the old title name and link
+it redirects to "/"
+"""
+
+
 @instructor.route('/delete/<instructor_id>') # add id
 def delete(instructor_id):
     #try:
