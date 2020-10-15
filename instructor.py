@@ -10,7 +10,7 @@ instructor.config["SQLALCHEMY_DATABASE_URI"] = database
 db = SQLAlchemy(instructor)
 
 @instructor.route('/')
-def index():
+def index(): 
     instructors = Instructor.query.all()
     return render_template("Index.html",instructors=instructors)
     
@@ -37,25 +37,27 @@ def create():
     return render_template("Create.html",instructors=instructors) 
 
 @instructor.route('/update/<instructor_id>', methods=['GET','POST']) # add id 
-def update(laptop_id):
+def update(instructor_id):
     if request.form:
         newtitle = request.form.get("title")
         newfirstname = request.form.get("firstname")
         newlastname  = request.form.get("lastname")
         newlink = request.form.get("link")
         
-        instructor = Instructor.query.get(laptop_id)
+        instructor = Instructor.query.get(instructor_id)
         instructor.title = newtitle
         instructor.firstname = newfirstname
         instructor.lastname = newlastname
         instructor.link = newlink
 
-        db.session.commit()
+        
+        db.session.commit() 
         
         return redirect("/")
-    
-    instructor = Instructor.query.get(laptop_id)
-    return render_template('update.html', instructor = instructor, title= "Update an Instructor")
+    instructors = Instructor.query.all()
+        
+    instructor = Instructor.query.get(instructor_id)
+    return render_template('update.html', instructor = instructor, title= "Update an Instructor", instructors = instructors)
 """
 it gets the instructor's id and simply recreates the id line
 from the new title name and link, it replaces the old title name and link
