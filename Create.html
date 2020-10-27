@@ -1,0 +1,103 @@
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>{{ title }}</title>
+    <style>
+      body {
+        background-image: url('static/SunMeteorShower.jpg');
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body>
+  
+  
+  <h1>{{ title }}</h1>
+
+<div class="container">
+
+<form method="POST" action="/create">
+
+<div class="input-group">
+
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Title</span>
+  </div>
+  <input name="title" type="text" class="form-control"> 
+</div>
+
+<div class="input-group">
+  
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">First and last name</span>
+  </div>
+  <input type="text" name="firstname" class="form-control">
+  <input type="text" name="lastname" class="form-control">
+
+</div>
+
+<div class="input-group">
+  
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Link</span>
+  </div>
+  <input name="link" type="text" class="form-control"> 
+
+</div>
+  
+<input class="btn btn-primary" type="submit" value="Add">
+<a href="http://127.0.0.1:5000/">Go back to home page</a>
+
+
+
+</form>
+
+
+
+ <table class="table table-dark">
+  <thead>
+    <tr>
+<!--         <th scope="col">ID</th> -->
+		<th scope="col">Title</th>
+		<th scope="col">FirstName</th>
+		<th scope="col">LastName</th>
+		<th scope="col">Link</th>
+        <th scope="col">Read</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for instructor in instructors %}
+	<tr>
+<!-- 		<td>{{ instructor.id}}</td> -->
+		<td>{{ instructor.title}}</td>
+		<td>{{ instructor.firstname}}</td>
+		<td>{{ instructor.lastname}}</td>
+		<td>{{ instructor.link}}</td>	
+		<td>{{ instructor.read}}</td>
+	</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+
+<a href='#top'> Go back to the top of the page.</a>
+
+
+</div>
+
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
