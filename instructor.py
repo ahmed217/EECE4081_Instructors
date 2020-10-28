@@ -3,6 +3,8 @@ from flask import render_template
 from flask import request
 from flask import redirect
 from flask_sqlalchemy import SQLAlchemy
+import json
+from flask import jsonify
 
 database = "sqlite:///instructors.db"
 instructor = Flask(__name__)
@@ -14,7 +16,12 @@ def index():
     instructors = Instructor.query.all()
     return render_template("Index.html",instructors=instructors)
     
-
+@instructor.route('/json')
+def createJson():
+    instructors = Instructor.query.all()
+    #return json.dumps(instructors)
+    return jsonify( json_list =[i.serialize() for i in instructors])
+    
 @instructor.route('/create', methods=['GET','POST'])
 def create():
     if request.form:
@@ -82,6 +89,13 @@ class Instructor(db.Model):
     lastname=db.Column(db.String(40), nullable = False)
     link = db.Column(db.String(180), nullable = True)
     read = db.Column(db.String(180), nullable = True)
+    
+    def serialize(self):
+        return {
+                'Title'        :   self.title,
+                'First Name'     :   self.firstname,
+                'Last Name'     :   self.lastname,
+        }
     
     
 
