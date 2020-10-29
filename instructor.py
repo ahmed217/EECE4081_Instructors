@@ -21,7 +21,12 @@ def createJson():
     instructors = Instructor.query.all()
     #return json.dumps(instructors)
     return jsonify( json_list =[i.serialize() for i in instructors])
-    
+@instructor.route("/about", methods=['GET','POST'])
+def about():
+    return render_template("about.html")
+@instructor.route("/contact", methods=['GET','POST'])
+def contact():
+    return render_template("contact.html")
 @instructor.route('/create', methods=['GET','POST'])
 def create():
     if request.form:

@@ -1,20 +1,4 @@
 
-<!--  
-<table border=1>
-<tr>
-<td>ID</td><td>Title</td><td>FirstName</td><td>LastName</td><td>Read</td>
-</tr>
-{% for instructor in instructors %}
-	<tr>
-		<td>{{ instructor.id}}</td>
-		<td>{{ instructor.title}}</td>
-		<td>{{ instructor.firstname}}</td>
-		<td>{{ instructor.lastname}}</td>
-		<td><a href="{{instructor.link}}" target="_blank" > {{ instructor.read }} </a></td>
-	</tr>
-{% endfor %}
-</table>
--->
 <!doctype html>
 <html lang="en">
   <head>
@@ -24,10 +8,42 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <title>{{ title }}</title>
+	
+    <title> Instructors </title>
   </head>
   <body>
+  <div class="container">
+    <div class="nav-wrapper">
+      <div class="left-side">
+        <div class="nav-link-wrapper">
+          <a href="/about"> About this program </a>
+        </div>
+        <div class="nav-link-wrapper">
+          <a href="/contact"> Contact Us </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="content-wrapper">
+    </div>
+  </div>
+  <main>
+  <!--  
+  <div class="nav-container">
+  	<nav style="background-color:black">
+  		<ul style="color: white">
+  			<li> 
+  				<a href="/about"> About Us</a>
+  			</li>
+  		</ul>
+  		<ul style="color: white" >
+  			<li> <a href="#contact" onClick="return confirm('Contact us at tiger@memphis.edu')"> Contact Us </a> </li>
+  		</ul>
+  	</nav>
+  </div>
+  -->
+  </main>
+  
   <div class="container">
   <div class="jumbotron">
     <h1>Welcome to Instructor Management</h1>
