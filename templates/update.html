@@ -1,0 +1,137 @@
+ <!--
+ Update Instructor
+<form method="POST" action="/update/{{instructor.id}}">
+<input name="title" type="text" value = {{instructor.title}}>
+<input name="firstname" type="text" value = {{instructor.firstname}}>
+<input name="lastname" type="text" value = {{instructor.lastname}}>
+<input name="link" type="text" value = {{instructor.link}}>
+<input type="submit" value="Update">
+</form>
+
+
+
+-->
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>{{ title }}</title>
+  </head>
+  <body>
+  
+  
+  <h1>{{ title }}</h1>
+
+<div class="container">
+
+<form method="POST" action="/update/{{instructor.id}}">
+
+<div class="input-group">
+
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Title</span>
+  </div>
+  <input name="title" type="text" class="form-control" value = {{instructor.title}}>
+</div>
+
+<div class="input-group">
+  
+ <div class="input-group-prepend">
+    <span class="input-group-text" id="">First name</span>
+  </div>
+  <input type="text" name="firstname" class="form-control" value = {{instructor.firstname}}>
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Last name</span>
+  </div>
+  <input type="text" name="lastname" class="form-control" value = {{instructor.lastname}}>
+
+
+</div>
+
+<div class="input-group">
+  
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="">Link</span>
+  </div>
+  <input name="link" type="text" class="form-control" value = {{instructor.link}}>
+
+</div>
+  
+<input class="btn btn-primary" type="submit" value="Update">
+
+
+
+
+</form>
+
+
+
+ <table class="table table-sm">
+  <thead>
+    <tr>
+        <th scope="col">ID</th>
+		<th scope="col">Title</th>
+		<th scope="col">FirstName</th>
+		<th scope="col">LastName</th>
+		<th scope="col">Link</th>
+        <th scope="col">Read</th>
+        <!-- 
+        <th scope="col">Actions</th>
+        -->
+    </tr>
+  </thead>
+  <tbody>
+    {% for instructor in instructors %}
+	<tr>
+		<td>{{ instructor.id}}</td>
+		<td>{{ instructor.title}}</td>
+		<td>{{ instructor.firstname}}</td>
+		<td>{{ instructor.lastname}}</td>	
+		<td><a href="{{instructor.link}}" target="_blank" > {{ instructor.link }} </a></td>
+		<td><a href="{{instructor.link}}" target="_blank" > {{ instructor.read }} </a></td>
+		<!-- 
+		<td><a href="/delete/{{instructor.id }}" onClick="return confirm('Are you sure yo u want to delete instructor: {{ instructor.firstname }} {{ instructor.lastname }}?')">Delete</a> </td>	
+		-->
+	</tr>
+	{% endfor %}
+	</tbody>
+</table>
+
+
+
+<a href="/"> <button style="background-color: lightblue"> Go back to home page </button></a>
+<br>
+<a href='#top'><button style="background-color: lightblue"> Go back to the top of the page. </button></a>
+
+
+</div>
+<br><br><br>
+
+  <div class="container">
+    <div class="nav-wrapper">
+      <div class="left-side">
+        <div class="nav-link-wrapper">
+          <a href="/about"> <button style="background-color: lightgreen"> About this program </button></a>
+        </div>
+        <div class="nav-link-wrapper">
+          <a href="/contact"><button style="background-color: lightgreen"> Contact Us </button></a>
+      </div>
+    </div>
+    <div class="content-wrapper">
+    </div>
+  </div>
+ <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
