@@ -14,6 +14,8 @@
 {% endfor %}
 </table>
 -->
+
+
 <!doctype html>
 <html lang="en">
 
@@ -25,6 +27,9 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	
 	<title>{{ title }}</title>
     <style>
       body {
@@ -68,6 +73,24 @@
 	</tbody>
 </table>
 <a href='#top'> Go back to the top of the page.</a>
+
+</div>
+<br><br><br>
+
+  <div class="container">
+    <div class="nav-wrapper">
+      <div class="left-side">
+        <div class="nav-link-wrapper">
+          <a href="/about"> <button style="background-color: lightgreen"> About this program </button></a>
+        </div>
+        <div class="nav-link-wrapper">
+          <a href="/contact"><button style="background-color: lightgreen"> Contact Us </button></a>
+      </div>
+    </div>
+    <div class="content-wrapper">
+    </div>
+  </div>
+  
 
 
 </div>
