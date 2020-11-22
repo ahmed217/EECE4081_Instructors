@@ -1,37 +1,158 @@
 <style>
-body {
-  background-image: url('static/herff.jpg');
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
 }
-</style> 
+body {
+  background-color: #12172b;
+  font-family: 'Poppins', sans-serif;
+}
+.container {
+  margin:20px 40px;
+  color: white;
+}
+.heading {
+  font-size: 60px;
+  color: white;
+}
+.heading span {
+  font-style: italic;
+  font-size: 30px;
+}
+.profiles {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 80px;
+}
+.profile {
+  flex-basis: 260px;
+}
+.profile , .profile img {
+  height: 260px;
+  width: 260px;
+  border-radius: 50%;
+  filter: grayscale(100%);
+  cursor: pointer;
+  transition: 400ms;
+}
+profile:hover .profile img {
+  filter: grayscale(0);
+}
+.profile h5 {
+  font-size: 10px;
+  font-weight: 100;
+  letter-spacing: 3px;
+  color: #CCCCCC;
+}
+.profile p {
+  font-size: 16px;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: justify;
+}
+@media only screen and (max-width: 1150px) {
+  .profiles {
+    flex-direction: column;
+  }
+  .profile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+.profile p {
+  text-align: center;
+  margin: 20px 60px 80px 60px;
+  font-size: 20px;
+}
+@media only screen and (max-width: 900px) {
+  .heading {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+  }
+  .heading span {
+    font-size: 15px;
+  }
+  .profiles {
+    margin: 20px 0;
+  }
+  .profile{
+    margin: 20px 10px 80px 10px;
+  }
+}
+.about {
+  margin: 130px 80px 80px 80px;
+  background-color: white;
+  padding: 12px;
+  color: black;
+  border-radius: 10%;
+}
+.profile h4 {
+  margin: 4px;
+}
+.homepage{
+  border-radius: 20px;
+  background-color: black;
+  color: white;
+  margin: 40px 20px 0px 40px;
+  height: 30px;
+  padding: 5px;
+  width: 100px;
+}
 
-<!--  -->
 
+</style>
 
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  	<title> About </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="style.css">
   </head>
-
   <body>
-  <form method="post">
-  	<div class="form-group">
-    	<h6> 
-    	<h1>   </h1> This app is part a Scheduling project and deals only with instructors
-    	<br> <h1>   </h1> The main application will be used to create schedules at UofM
-    	<br> <h1>   </h1> Engineering Department.
-    	
-    	</h6>
-  	</div>
-  </form>
-  <a href="/"> <button style="background-color: lightblue"> Go back to home page </button></a>
+    <header>
+        <button class="homepage" name="homepage" onclick="window.location.href='/'"> Homepage </button>
+    </header>
+    <div class="container">
+      <h1 class="heading"> <span>  About us  </span> and this program </h1>
+      <div class="profiles">
+        <div class="profile">
+          <img src="static/mike.jpg" class="mike">
+          <h3 class="team"> Micheal Boyd II </h3>
+          <h5> Senior at the University of Memphis </h5>
+          <h4 class="mike"><a href="mailto:mboyd8@memphis.edu"> &nbsp mboyd8@memphis.edu</a><br></h4>
+        </div>
+        <div class="profile">
+          <img src="static/randi.jpg" class="mike">
+          <h3 class="team"> Randi Wicks </h3>
+          <h5> Senior at the University of Memphis </h5>
+          <h4 class="randi"><a href="mailto:rwicks@memphis.edu"> &nbsp rwicks@memphis.edu</a><br></h4>
+        </div>
+        <div class="profile">
+          <img src="static/mike.jpg" class="mike">
+          <h3 class="team"> Sidi Diawo </h3>
+          <h5> Junior at the University of Memphis </h5>
+          <h4 class="sidi"><a href="mailto:sdiawo@memphis.edu"> &nbsp sdiawo@memphis.edu</a><br></h4>
+        </div>
+      </div>
+      <div class="about">
+        <section>
+          <p>
+            This an section project of the Class scheduling project for
+            the Herff College of Engineering of the UofM.
+            This program will be used to add instructors as well as their related information
+            such as title and linkedin page, University profil or personal website. It also will
+            be used to manage instructors in the database with various functions like Delete and Update.
+            <br> It was developed in Fall semeter of 2020-21 by team Z-Blue, assignment by Dr. Faruk Ahmed.
+          </p>
+        </section>
+      </div>
+    </div>
   </body>
+</html>
