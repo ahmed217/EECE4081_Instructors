@@ -64,8 +64,12 @@ def update(instructor_id):
         instructor.firstname = newfirstname
         instructor.lastname = newlastname
         instructor.link = newlink
-
         
+        if newlink == "":
+            instructor.read = ""
+        else:
+            instructor.read = "Read more about " + newtitle + " " + newfirstname + " " + newlastname
+
         db.session.commit() 
         
         return redirect("/")

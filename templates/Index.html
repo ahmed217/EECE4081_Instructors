@@ -1,129 +1,122 @@
-<!--  
-<table border=1>
-<tr>
-<td>ID</td><td>Title</td><td>FirstName</td><td>LastName</td><td>Read</td>
-</tr>
-{% for instructor in instructors %}
-	<tr>
-		<td>{{ instructor.id}}</td>
-		<td>{{ instructor.title}}</td>
-		<td>{{ instructor.firstname}}</td>
-		<td>{{ instructor.lastname}}</td>
-		<td><a href="{{instructor.link}}" target="_blank" > {{ instructor.read }} </a></td>
-	</tr>
-{% endfor %}
-</table>
--->
 
-<<style>
-
-about {
-	margin = 20px;
-}
-
-</style>
-<!doctype html>
-<html lang="en">
-
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
   <head>
-  
-    <!-- Required meta tags -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-	<link rel="stylesheet" href="/style.css">
-    <title> Instructors </title>
-	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-	
-	<title>{{ title }}</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title> Instructor database </title>
     <style>
+    
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap');
+    
       body {
-        background-image: url('static/BlueUniverse.jpg');
-        background-repeat: no-repeat;
-        background-size: 100%;
+		  background-color: #3895D3;
+		  background-color: #1261A0;
       }
+      header {
+        margin: 20px 20px 20px 80px;
+      }
+      main {
+      }
+      .container {
+      }
+      .instructor {
+        color: black;
+      }
+      .table {
+		color: black;
+      }
+      .table .jumbotron {
+      	height: 10px;
+      	width: 52%;
+      	padding-top: 10px;
+      	font-family: 'Poppins', sans-serif;
+      }
+      .task {
+		
+      }
+      .add {
+      	margin: 10px 10px 10px 0px;;
+      }
+      .management {
+      	background: gray;
+      	width: 44%;
+      	padding: 12px;
+      	border-radius: 2%;
+      	margin: 20px;
+      }
+      footer {}
+      tbody {
+		padding: 10px;      
+      }
+
     </style>
   </head>
- 
   <body>
-  <!--  -->
-  <div class="container">
-    <div class="nav-wrapper">
-      <div class="left-side">
-        <div class="about">
-          <a href="/about"> <button> About </button></a>
+    <header>
+      <div class="header">
+        <button class="about" name="about" onclick="window.location.href='/about'"> About </button>
+      </div>
+    </header>
+    <main>
+      <div class="container">
+        <div class="instructor">
+          <div class="jumbotron">
+            <h1> Welcome to Instructor Management </h1>
+              <p>
+                This application manages Instructors.
+              </p>
+          </div>
+        </div>
+        <div class="table">
+	        <div class="jumbotron">
+	        	<h1> Intructors managements </h1>
+	        </div>
+        <div class="add">
+        	<a href="create"> <button> Add Instructor </button></a>
+        </div>  
+      <table class="table table-dark">
+      <thead>
+        <tr>
+        <th scope="col">Title</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+        <th scope="col">Read</th>
+         <!--  -->
+         <th scope="col">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for instructor in instructors %}
+      <tr>
+        <td>{{ instructor.title}}</td>
+        <td>{{ instructor.firstname}}</td>
+        <td>{{ instructor.lastname}}</td>
+        <td><a href="{{instructor.link}}" target="_blank" > {{ instructor.read }} </a></td>
+        <td><a href="delete/{{instructor.id }}" onClick="return confirm('Are you sure you want to delete instructor: {{ instructor.firstname }} {{ instructor.lastname }}?')">Delete</a>
+            |
+            <a href= "update/{{ instructor.id }}"> Update</a>
+        </td>
+      </tr>
+      {% endfor %}
+      </tbody>
+      </table>
+      <a href='#top'><button> Go back to the top of the page. </button></a>
+      </div>
+        <div class="task">
+
         </div>
       </div>
-    </div>
-    <div class="content-wrapper">
-    </div>
-  </div>
-  <main>
-  <!--  
-  <div class="nav-container">
-  	<nav style="background-color:black">
-  		<ul style="color: white">
-  			<li> 
-  				<a href="/about"> About Us</a>
-  			</li>
-  		</ul>
-  		<ul style="color: white" >
-  			<li> <a href="#contact" onClick="return confirm('Contact us at tiger@memphis.edu')"> Contact Us </a> </li>
-  		</ul>
-  	</nav>
-  </div>
-  -->
-  </main>
-  <div class="container">
-  <div class="jumbotron">
-    <h1>Welcome to Instructor Management</h1>
-    <p>This application manages Instructors.
-    </p>
-  </div>
-  
-  <h1>{{ title }}</h1>
-  <a href="http://127.0.0.1:5000/create">Add Instructor</a>
-  <<table class="table table-dark">
-  <thead>
-    <tr>
-      <th scope="col">ID</th>
-		<th scope="col">Title</th>
-		<th scope="col">FirstName</th>
-		<th scope="col">LastName</th>
-      	<th scope="col">Read</th>
-      	<!--  -->
-      	<th scope="col">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {% for instructor in instructors %}
-	<tr>
-		<td>{{ instructor.id}}</td>
-		<td>{{ instructor.title}}</td>
-		<td>{{ instructor.firstname}}</td>
-		<td>{{ instructor.lastname}}</td>
-		<td><a href="{{instructor.link}}" target="_blank" > {{ instructor.read }} </a></td>
-		<td><a href="delete/{{instructor.id }}" onClick="return confirm('Are you sure you want to delete instructor: {{ instructor.firstname }} {{ instructor.lastname }}?')">Delete</a> 
-		    |
-		    <a href= "update/{{ instructor.id }}"> Update</a>
-		</td>
-	</tr>
-	{% endfor %}
-	</tbody>
-</table>
-<a href='#top'> Go back to the top of the page.</a>
+    </main>
+    <footer>
 
-</div>
-<br><br><br>
-
-</div>
-
+    </footer>
     <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   </body>
 </html>
