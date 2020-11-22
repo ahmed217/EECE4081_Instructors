@@ -1,17 +1,52 @@
+<!--  
+<table border=1>
+<tr>
+<td>ID</td><td>Title</td><td>FirstName</td><td>LastName</td><td>Read</td>
+</tr>
+{% for instructor in instructors %}
+	<tr>
+		<td>{{ instructor.id}}</td>
+		<td>{{ instructor.title}}</td>
+		<td>{{ instructor.firstname}}</td>
+		<td>{{ instructor.lastname}}</td>
+		<td><a href="{{instructor.link}}" target="_blank" > {{ instructor.read }} </a></td>
+	</tr>
+{% endfor %}
+</table>
+-->
+
 
 <!doctype html>
 <html lang="en">
+
   <head>
+  
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<<<<<<< HEAD
 	<link rel="stylesheet" href="/style.css">
     <title> Instructors </title>
+=======
+	
+	<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+	
+	<title>{{ title }}</title>
+    <style>
+      body {
+        background-image: url('static/BlueUniverse.jpg');
+        background-repeat: no-repeat;
+        background-size: 100%;
+      }
+    </style>
+>>>>>>> 8a3bc5c1340376511a8caf739be714c02eb1418b
   </head>
+ 
   <body>
+<<<<<<< HEAD
   <!--  -->
   <div class="container">
     <div class="nav-wrapper">
@@ -41,6 +76,8 @@
   -->
   </main>
   
+=======
+>>>>>>> 8a3bc5c1340376511a8caf739be714c02eb1418b
   <div class="container">
   <div class="jumbotron">
     <h1>Welcome to Instructor Management</h1>
@@ -49,40 +86,57 @@
   </div>
   
   <h1>{{ title }}</h1>
-  <a href="http://127.0.0.1:5000/create"> <button> Add Instructor </button></a>
+  <a href="http://127.0.0.1:5000/create">Add Instructor</a>
   <table class="table table-dark">
   <thead>
     <tr>
+<<<<<<< HEAD
         <!--  <th scope="col">ID</th> -->
+=======
+<!--       <th scope="col">ID</th> -->
+>>>>>>> 8a3bc5c1340376511a8caf739be714c02eb1418b
 		<th scope="col">Title</th>
 		<th scope="col">FirstName</th>
 		<th scope="col">LastName</th>
-      	<th scope="col">Read</th>
-      	<!--  -->
-      	<th scope="col">Actions</th>
+      <th scope="col">Read</th>
     </tr>
   </thead>
   <tbody>
     {% for instructor in instructors %}
 	<tr>
+<<<<<<< HEAD
 		<!-- <td>{{ instructor.id}}</td> -->
+=======
+<!-- 		<td>{{ instructor.id}}</td> -->
+>>>>>>> 8a3bc5c1340376511a8caf739be714c02eb1418b
 		<td>{{ instructor.title}}</td>
 		<td>{{ instructor.firstname}}</td>
 		<td>{{ instructor.lastname}}</td>
 		<td><a href="{{instructor.link}}" target="_blank" > {{ instructor.read }} </a></td>
-		<td><a href="/delete/{{instructor.id }}" onClick="return confirm('Are you sure you want to delete instructor: {{ instructor.firstname }} {{ instructor.lastname }}?')">Delete</a> 
-		    |
-		    <a href= "/update/{{ instructor.id }}"> Update</a>
-		</td>
-		
 	</tr>
 	{% endfor %}
 	</tbody>
 </table>
-<a href='#top'><button> Go back to the top of the page. </button></a>
-<!--  
- <p style=" position: absolute; bottom: 0; left: 0; width: 100%; text-align: left;"> <code>		Copyright © 2020 UofM</code> </p>
--->
+<a href='#top'> Go back to the top of the page.</a>
+
+</div>
+<br><br><br>
+
+  <div class="container">
+    <div class="nav-wrapper">
+      <div class="left-side">
+        <div class="nav-link-wrapper">
+          <a href="/about"> <button style="background-color: lightgreen"> About this program </button></a>
+        </div>
+        <div class="nav-link-wrapper">
+          <a href="/contact"><button style="background-color: lightgreen"> Contact Us </button></a>
+      </div>
+    </div>
+    <div class="content-wrapper">
+    </div>
+  </div>
+  
+
 
 </div>
 
