@@ -13,17 +13,29 @@
     <title>{{ title }}</title>
     
       <style>
-      body {
-        background-image: url('/static/favicon.ico');
-        background-repeat: no-repeat;
-        background-size: cover;
-     }
-    </style>
+	      body {
+	        background-image: url('/static/favicon.ico');
+	        background-repeat: no-repeat;
+	        background-size: cover;
+	     	}
+	      .header a{
+		     border-radius: 10%;
+		     margin: 10%;
+	     }
+	     .header {}
+	     .container {
+	     	margin-top: 2%;
+	     }
+	     
+      </style>
   </head>
+  
   <body>
-  
-  
   <h1>{{ title }}</h1>
+  
+  <div class="header">
+	<a href="/"> <button style="background-color: white"> Go back to home page </button></a>
+</div>
 
 <div class="container">
 
@@ -96,10 +108,7 @@
 	{% endfor %}
 	</tbody>
 </table>
-
-<a href='#top'> Go back to the top of the page.</a>
-
-
+<a href="#top"> <button style="background-color: white"> Go back to the top of the page</button></a>
 </div>
 
  <!-- Optional JavaScript -->
